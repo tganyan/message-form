@@ -1,5 +1,38 @@
-extends layout
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='#{description}')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0 minimal-ui')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/application.css')
+  body
 
-block content
-  h1= title
-  p Welcome to #{title}
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+
+
+section.message-container
+  h1.title= title
+  form#form.form(action='#', method='get')
+    ul
+      li
+        label(for='name') Your Name:
+        input#name(type='text', placeholder='Your Name', name='name', tabindex='1')
+      li
+        label(for='email') Your Email:
+        input#email(type='email', placeholder='Your Email', name='email', tabindex='2')
+      li
+        label(for='message') Message:
+        textarea#message(placeholder='Message…', name='message', tabindex='3')
+
+    button#submit Send Message
+
+script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+script(src="/javascripts/app.js")
+
+script(src="//localhost:35729/livereload.js")
